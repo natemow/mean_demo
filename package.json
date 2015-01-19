@@ -1,0 +1,21 @@
+{
+  "name": "MEAN",
+  "version": "0.0.0",
+  "description": "Me getting MEAN.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.11.0",
+    "passport": "~0.2.1",
+    "mongoose": "~3.8.21",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.10.1",
+    "underscore": "~1.7.0",
+    "path": "~0.11.14",
+    "jsonwebtoken": "~3.2.2"
+  }
+}
