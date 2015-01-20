@@ -1,6 +1,6 @@
 angular
   .module('serviceUsers', ['serviceAuth'])
-  .factory('Users', function($http) {
+  .factory('Users', function($http, $q) {
     var factory = {};
 
     factory.getUsers = function() {
@@ -16,7 +16,6 @@ angular
     };
 
     factory.updateUser = function(id, data) {
-      console.log(data);
       return $http.put('/api/users/' + id, data);
     };
 

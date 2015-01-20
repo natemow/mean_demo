@@ -1,5 +1,7 @@
 
 var controllerMain = function(App, Auth, $scope, $window) {
+  App.authRequired();
+
   // Bind this to vm (view-model).
   var vm = this;
 
@@ -47,11 +49,10 @@ var controllerProfile = function(App, AuthStorage, Users, $scope) {
     Users
       .updateUser(id, vm.user)
       .success(function(result) {
-        App.message = 'Success';
+        App.message = result.message;
       })
       .error(function(result) {
-        App.message = 'Failure';
-        console.log(result);
+        App.message = result.message;
       });
   };
 };
@@ -62,22 +63,73 @@ var controllerUsers = function(App, Users) {
   // Bind this to vm (view-model).
   var vm = this;
 
-  Users.getUsers()
-    .success(function(result) {
-      vm.users = result.data;
-    });
+  var getUsers = function() {
+    vm.userAdd = false;
+    vm.userEdit = false;
+    vm.userDelete = false;
 
-  vm.doEdit = function(id) {
-    Users.getUser(id)
+    Users.getUsers()
       .success(function(result) {
-        vm.user = result.data;
+        vm.users = result.data;
       });
+  }
+  getUsers();
+
+  var doSuccess = function(result) {
+    App.message = result.message;
+    getUsers();
   };
-  vm.doDelete = function(id) {
-    Users.getUser(id)
-      .success(function(result) {
-        vm.user = result.data;
-      });
+
+  var doFailure = function(result) {
+    App.message = result.message;
+  };
+
+  vm.doAdd = function(data) {
+    vm.userEdit = false;
+    vm.userDelete = false;
+
+    if (!data) {
+      vm.userAdd = {};
+    }
+    else {
+      Users
+        .createUser(data)
+        .success(doSuccess)
+        .error(doFailure);
+    }
+  }
+
+  vm.doEdit = function(id, data) {
+    vm.userAdd = false;
+    vm.userDelete = false;
+
+    if (id && !data) {
+      Users.getUser(id)
+        .success(function(result) {
+          vm.userEdit = result.data;
+        });
+    }
+    else {
+      Users
+        .updateUser(id, data)
+        .error(doFailure)
+        .success(doSuccess);
+    }
+  };
+
+  vm.doDelete = function(id, confirmed) {
+    vm.userAdd = false;
+    vm.userEdit = false;
+
+    if (!confirmed) {
+      vm.userDelete = { _id: id };
+    }
+    else {
+      Users
+        .deleteUser(id)
+        .success(doSuccess)
+        .error(doFailure);
+    }
   };
 
 };

@@ -31,9 +31,6 @@ angular
           for (var p in result.data) {
             globals.user.data[p] = result.data[p];
           }
-        })
-        .error(function(result) {
-          //console.log(result);
         });
     }
     else {

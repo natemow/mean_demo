@@ -33,11 +33,10 @@ angular
       return config;
     };
 
+    // Forces Angular to stop processing if it received bad HTTP response.
     factory.responseError = function(response) {
-      if (response.status === 403) {
-        $location.path('/login');
-        return $q.reject(response);
-      }
+      console.log(response);
+      return $q.reject(response);
     };
 
     return factory;

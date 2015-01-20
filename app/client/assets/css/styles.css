@@ -14,8 +14,11 @@ footer > div {
   padding-top: 20px;
   padding-bottom: 40px;
 }
-h1 {
+h1, h2, h3 {
   margin-top: 0;
+}
+.container .jumbotron {
+  padding: 20px;
 }
 
 .ng-enter {

@@ -35,7 +35,7 @@
   </header>
   <main class="container">
     <div class="col-sm-12">
-      <div class="jumbotron" ng-show="controller.App.message">
+      <div class="jumbotron" ng-if="controller.App.message">
         {{ controller.App.message }}
       </div>
       <div ng-view></div>

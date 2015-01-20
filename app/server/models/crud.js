@@ -10,6 +10,7 @@ module.exports = function(Model) {
     var message = '';
     switch (status) {
       case 500:
+        message = 'Server error.';
         break;
       case 409:
         message = 'Record already exists.';
@@ -21,9 +22,10 @@ module.exports = function(Model) {
         message = 'Data is malformed or non-existent.';
         break;
       case 201:
-        message = 'Data saved.'
+        message = 'Data added.';
         break;
       case 200:
+        message = 'The operation was successful.';
         break;
     }
 
@@ -58,7 +60,7 @@ module.exports = function(Model) {
     document.save(function(e) {
       if (e) {
         status = 500;
-        if (e.code === 11000) {
+        if (e.code === 11000 || e.code === 11001) {
           status = 409;
         }
 

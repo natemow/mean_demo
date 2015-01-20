@@ -50,10 +50,4 @@ module.exports = function(app, config) {
     }
   });
 
-  // Log all requests.
-//  app.use(function(req, res, next) {
-//    console.log(req.method, req.url);
-//    next();
-//  });
-
 };

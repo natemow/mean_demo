@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-8">
     <h1>Users</h1>
+    <p><a href="#" ng-click="controller.doAdd()">Add User</a></p>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -24,8 +25,92 @@
     </table>
   </div>
   <div class="col-sm-4">
-    <div ng-if="controller.user">
-      {{ controller.user._id }}
+
+    <div ng-if="controller.userAdd">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add User</h3>
+        </div>
+        <div class="panel-body">
+          <form ng-submit="controller.doAdd(controller.userAdd)">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" required
+                ng-model="controller.userAdd.name">
+            </div>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" required
+                ng-model="controller.userAdd.username">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control"
+                ng-model="controller.userAdd.password">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">
+              <span>Add User</span>
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
+
+    <div ng-if="controller.userEdit">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Edit User</h3>
+        </div>
+        <div class="panel-body">
+          <form ng-submit="controller.doEdit(controller.userEdit._id, controller.userEdit)">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" required
+                ng-model="controller.userEdit.name">
+            </div>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" required
+                ng-model="controller.userEdit.username">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control"
+                ng-model="controller.userEdit.password">
+            </div>
+            <div class="form-group">
+              <label>Favorite Color</label>
+              <input type="text" class="form-control"
+                ng-model="controller.userEdit.profile.color">
+            </div>
+            <div class="form-group">
+              <label>Favorite Food</label>
+              <input type="text" class="form-control"
+                ng-model="controller.userEdit.profile.food">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">
+              <span>Save</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="controller.userDelete">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Delete User</h3>
+        </div>
+        <div class="panel-body">
+          <p>Are you sure you want to delete user {{ controller.userDelete._id }}?</p>
+          <form ng-submit="controller.doDelete(controller.userDelete._id, true)">
+            <button type="submit" class="btn btn-block btn-primary">
+              <span>Confirm</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
