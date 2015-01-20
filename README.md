@@ -13,4 +13,4 @@
 ## Client
 * **A**ngularJS
   * Login stores the token issued from the server's `/auth` endpoint in local browser storage (via `AuthStorage`).
-  * Outbound requests to the API have the `x-access-token` HTTP header added via the [`AuthInterceptor factory`](https://github.com/natemow/mean_demo/blob/master/app/client/app/services/auth.js).
+  * Outbound requests to the API have the `x-access-token` HTTP header added via [`AuthInterceptor`](https://github.com/natemow/mean_demo/blob/master/app/client/app/services/auth.js).
