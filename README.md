@@ -14,4 +14,4 @@
 * **A**ngularJS
   * Login stores the token issued from the server's `/auth` endpoint in local browser storage (via `AuthStorage`).
   * Outbound requests to the API have the `x-access-token` HTTP header added via [`AuthInterceptor`](https://github.com/natemow/mean_demo/blob/master/app/client/app/services/auth.js).
-  * Pretty URLs, 404 handling and fading page transitions handled in [`routes.js`](https://github.com/natemow/mean_demo/blob/master/app/client/app/routes.js) and basic `/client/assets/styles.css`.
+  * Pretty URLs, 404 handling and fading page transitions handled in [`routes.js`](https://github.com/natemow/mean_demo/blob/master/app/client/app/routes.js) and basic `client/assets/styles.css`.
