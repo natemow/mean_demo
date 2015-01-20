@@ -2,7 +2,7 @@
 
 ## Server
 * **M**ongoDB, **N**ode.js
-  * npm: **E**xpress, underscore, mongoose, bcrypt-nodejs, body-parser, jsonwebtoken
+  * npm: **E**xpress, underscore, mongoose, bcrypt-nodejs, body-parser, jsonwebtoken.
   * All API requests require a valid token issued at login.
   * All API responses are standardized through a custom CRUD module; all client messaging is driven by the API.
     <pre><code>// Add CRUD methods to object for APIs.
