@@ -29,21 +29,21 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!user.isLoggedIn"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
         <li ng-if="user.isLoggedIn"><a href="/profile"><span class="glyphicon glyphicon-user"></span> Hello {{ user.name }}!</a></li>
-        <li ng-if="user.isLoggedIn"><a href="/" ng-click="controller.doLogout()">Logout</a></li>
+        <li ng-if="user.isLoggedIn"><a href="#" ng-click="controller.doLogout()">Logout</a></li>
       </ul>
     </div>
   </header>
   <main class="container">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <div class="jumbotron" ng-show="controller.App.message">
         {{ controller.App.message }}
       </div>
-      <div ng-view ng-animate-children></div>
+      <div ng-view></div>
     </div>
   </main>
   <footer class="container">
-    <div class="col-md-12">
-      <p>Footer stuff.</p>
+    <div class="col-sm-12">
+      <p>One nation. No gods.</p>
     </div>
   </footer>
 </body>

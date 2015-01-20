@@ -11,11 +11,6 @@ angular
       }
     };
 
-    globals.broadcast = function(evt) {
-      $rootScope
-        .$broadcast(evt);
-    };
-
     globals.authRequired = function() {
       if (!globals.user.isLoggedIn) {
         $location.path('/login');
@@ -26,7 +21,6 @@ angular
     $rootScope
       .$on('$routeChangeStart', function() {
         globals.message = null;
-        globals.user.isLoggedIn = Auth.isLoggedIn();
       });
 
     // Populate user data.

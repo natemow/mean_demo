@@ -1,33 +1,35 @@
-<div class="row col-sm-6 col-sm-offset-3">
-  <h1>My Profile</h1>
-  <form ng-submit="controller.doUpdate()">
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" required
-        ng-model="controller.user.name">
-    </div>
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" class="form-control" required
-        ng-model="controller.user.username">
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control"
-        ng-model="controller.user.password">
-    </div>
-    <div class="form-group">
-      <label>Favorite Color</label>
-      <input type="text" class="form-control"
-        ng-model="controller.user.profile.color">
-    </div>
-    <div class="form-group">
-      <label>Favorite Food</label>
-      <input type="text" class="form-control"
-        ng-model="controller.user.profile.food">
-    </div>
-    <button type="submit" class="btn btn-block btn-primary">
-      <span>Save</span>
-    </button>
-  </form>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1>My Profile</h1>
+    <form ng-submit="controller.doUpdate()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" required
+          ng-model="controller.user.name">
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" required
+          ng-model="controller.user.username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control"
+          ng-model="controller.user.password">
+      </div>
+      <div class="form-group">
+        <label>Favorite Color</label>
+        <input type="text" class="form-control"
+          ng-model="controller.user.profile.color">
+      </div>
+      <div class="form-group">
+        <label>Favorite Food</label>
+        <input type="text" class="form-control"
+          ng-model="controller.user.profile.food">
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">
+        <span>Save</span>
+      </button>
+    </form>
+  </div>
 </div>
