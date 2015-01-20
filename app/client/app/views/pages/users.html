@@ -1,0 +1,29 @@
+<h1>Users</h1>
+<div class="col-lg-8">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in controller.users">
+        <td>{{ user._id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.name }}</td>
+        <td>
+          <a href="#" ng-click="controller.doEdit(user._id)">edit</a>
+          <a href="#" ng-click="controller.doDelete(user._id)">delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-4">
+  <div ng-if="controller.user">
+    {{ controller.user._id }}
+  </div>
+</div>

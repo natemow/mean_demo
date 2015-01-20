@@ -1,27 +1,27 @@
 angular
-  .module('serviceUsers', [])
+  .module('serviceUsers', ['serviceAuth'])
   .factory('Users', function($http) {
     var factory = {};
-    var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiTmF0ZSIsInVzZXJuYW1lIjoibmF0ZW1vdyIsImlhdCI6MTQyMTYyNjc1NiwiZXhwIjoxNDIxNzEzMTU2fQ.x1pY4fC3V90tM_Bv2FW7rauY7IVeiMlvthUIsZ5Rb0g';
 
     factory.getUsers = function() {
-      return $http.get('/api/users?token=' + token);
+      return $http.get('/api/users');
     };
 
     factory.getUser = function(id) {
-      return $http.get('/api/users/' + id + '?token=' + token);
+      return $http.get('/api/users/' + id);
     };
 
     factory.createUser = function(data) {
-      return $http.post('/api/users?token=' + token, data);
+      return $http.post('/api/users', data);
     };
 
     factory.updateUser = function(id, data) {
-      return $http.put('/api/users/' + id + '?token=' + token, data);
+      console.log(data);
+      return $http.put('/api/users/' + id, data);
     };
 
     factory.deleteUser = function(id) {
-      return $http.delete('/api/users/' + id + '?token=' + token);
+      return $http.delete('/api/users/' + id);
     };
 
     return factory;

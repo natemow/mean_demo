@@ -15,7 +15,7 @@ module.exports = function(app) {
             User.crud.sendResponse(res, 500, false, e);
           }
           else if (!data) {
-            User.crud.sendResponse(res, 400, false);
+            User.crud.sendResponse(res, 403, false);
           }
         })
         .then(function(user) {
@@ -24,6 +24,7 @@ module.exports = function(app) {
           }
           else {
             var token = jwt.sign({
+                _id: user._id,
                 name: user.name,
                 username: user.username
               },
