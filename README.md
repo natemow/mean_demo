@@ -1,9 +1,9 @@
 # MEAN demo
 
 ## Server
-* MongoDB, Node.js, Express
-  * npm: underscore, mongoose, bcrypt-nodejs, body-parser, jsonwebtoken
+* *M*ongoDB, *N*ode.js
+  * npm: *E*xpress, underscore, mongoose, bcrypt-nodejs, body-parser, jsonwebtoken
 
 ## Client
-* AngularJS
+* *A*ngularJS
   * Bootstrap
