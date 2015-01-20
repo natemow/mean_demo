@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-sm-8">
-    <h1>Users</h1>
-    <p><a href="#" ng-click="controller.doAdd()">Add User</a></p>
+
+    <h1 class="pull-left">Users</h1>
+    <button type="button" class="btn btn-default btn-xs pull-right" ng-click="controller.doAdd()">add user</button>
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -17,8 +19,8 @@
           <td>{{ user.username }}</td>
           <td>{{ user.name }}</td>
           <td>
-            <a href="#" ng-click="controller.doEdit(user._id)">edit</a>
-            <a href="#" ng-click="controller.doDelete(user._id)">delete</a>
+            <button type="button" class="btn btn-default btn-xs" ng-click="controller.doEdit(user._id)">edit</button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="controller.doDelete(user._id)">delete</button>
           </td>
         </tr>
       </tbody>
@@ -45,11 +47,11 @@
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" class="form-control"
+              <input type="password" class="form-control" required
                 ng-model="controller.userAdd.password">
             </div>
-            <button type="submit" class="btn btn-block btn-primary">
-              <span>Add User</span>
+            <button type="submit" class="btn btn-block btn-success">
+              <span>Save</span>
             </button>
           </form>
         </div>
@@ -88,7 +90,7 @@
               <input type="text" class="form-control"
                 ng-model="controller.userEdit.profile.food">
             </div>
-            <button type="submit" class="btn btn-block btn-primary">
+            <button type="submit" class="btn btn-block btn-success">
               <span>Save</span>
             </button>
           </form>
@@ -104,7 +106,7 @@
         <div class="panel-body">
           <p>Are you sure you want to delete user {{ controller.userDelete._id }}?</p>
           <form ng-submit="controller.doDelete(controller.userDelete._id, true)">
-            <button type="submit" class="btn btn-block btn-primary">
+            <button type="submit" class="btn btn-block btn-success">
               <span>Confirm</span>
             </button>
           </form>

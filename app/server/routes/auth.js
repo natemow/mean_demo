@@ -30,7 +30,8 @@ module.exports = function(app) {
               },
               config.server.secret,
               {
-                expiresInMinutes: 1440 // expires in 24 hours
+                // Expires in 24 hours.
+                expiresInMinutes: 1440
               }
             );
 

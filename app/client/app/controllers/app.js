@@ -28,7 +28,8 @@ var controllerLogin = function(App, Auth, $window, $scope) {
         $window.location.href = '/';
       })
       .error(function(result) {
-        App.message = result.message;
+        App.message.success = result.success;
+        App.message.text = result.message;
       });
   };
 };
@@ -49,10 +50,12 @@ var controllerProfile = function(App, AuthStorage, Users, $scope) {
     Users
       .updateUser(id, vm.user)
       .success(function(result) {
-        App.message = result.message;
+        App.message.success = result.success;
+        App.message.text = result.message;
       })
       .error(function(result) {
-        App.message = result.message;
+        App.message.success = result.success;
+        App.message.text = result.message;
       });
   };
 };
@@ -75,13 +78,13 @@ var controllerUsers = function(App, Users) {
   }
   getUsers();
 
-  var doSuccess = function(result) {
-    App.message = result.message;
-    getUsers();
-  };
+  var doMessage = function(result) {
+    App.message.success = result.success;
+    App.message.text = result.message;
 
-  var doFailure = function(result) {
-    App.message = result.message;
+    if (result.success) {
+      getUsers();
+    }
   };
 
   vm.doAdd = function(data) {
@@ -94,8 +97,8 @@ var controllerUsers = function(App, Users) {
     else {
       Users
         .createUser(data)
-        .success(doSuccess)
-        .error(doFailure);
+        .success(doMessage)
+        .error(doMessage);
     }
   }
 
@@ -112,8 +115,8 @@ var controllerUsers = function(App, Users) {
     else {
       Users
         .updateUser(id, data)
-        .error(doFailure)
-        .success(doSuccess);
+        .success(doMessage)
+        .error(doMessage);
     }
   };
 
@@ -127,8 +130,8 @@ var controllerUsers = function(App, Users) {
     else {
       Users
         .deleteUser(id)
-        .success(doSuccess)
-        .error(doFailure);
+        .success(doMessage)
+        .error(doMessage);
     }
   };
 

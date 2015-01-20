@@ -13,19 +13,24 @@ module.exports = function(Model) {
         message = 'Server error.';
         break;
       case 409:
-        message = 'Record already exists.';
+        message = Model.modelName + ' already exists.';
         break;
       case 403:
         message = 'Permission denied.';
         break;
       case 400:
-        message = 'Data is malformed or non-existent.';
+        message = 'Request is malformed or ' + Model.modelName + ' is non-existent.';
         break;
       case 201:
-        message = 'Data added.';
+        message = Model.modelName + ' added.';
         break;
       case 200:
-        message = 'The operation was successful.';
+        if (!_.isUndefined(data._id)) {
+          message = 'The operation on ' + Model.modelName + ' ' + data._id + ' was successful.';
+        }
+        else {
+          message = 'The operation was successful.';
+        }
         break;
     }
 

@@ -35,15 +35,21 @@
   </header>
   <main class="container">
     <div class="col-sm-12">
-      <div class="jumbotron" ng-if="controller.App.message">
-        {{ controller.App.message }}
+      <div ng-if="controller.App.message.text">
+        <div class="alert alert-success" ng-if="controller.App.message.success">
+          {{ controller.App.message.text }}
+        </div>
+        <div class="alert alert-warning" ng-if="!controller.App.message.success">
+          {{ controller.App.message.text }}
+        </div>
       </div>
+
       <div ng-view></div>
     </div>
   </main>
   <footer class="container">
     <div class="col-sm-12">
-      <p>One nation. No gods.</p>
+      <small>MEAN demo <a href="https://github.com/natemow/mean_demo" target="_blank">@GitHub</a></small>
     </div>
   </footer>
 </body>

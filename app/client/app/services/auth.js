@@ -21,7 +21,7 @@ angular
   .factory('AuthInterceptor', function($q, $location, AuthStorage) {
     var factory = {};
 
-    // This will happen on all HTTP requests (see app module.config).
+    // This will happen on all HTTP requests (see app module('app').config).
     factory.request = function(config) {
       var token = AuthStorage.get('token');
 

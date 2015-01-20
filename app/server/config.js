@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    port: 1337,
+    port: 8080,
     secret: 'this is the biggest secret for creating JWTs!!!',
   },
   client: {

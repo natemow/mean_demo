@@ -4,7 +4,10 @@ angular
   ])
   .factory('App', function($rootScope, $location, Auth) {
     var globals = {
-      message: null,
+      message: {
+        text: null,
+        success: true
+      },
       user: {
         isLoggedIn: Auth.isLoggedIn(),
         data: {}
@@ -20,7 +23,7 @@ angular
     // Check to see if a user is logged in.
     $rootScope
       .$on('$routeChangeStart', function() {
-        globals.message = null;
+        globals.message.text = null;
       });
 
     // Populate user data.
