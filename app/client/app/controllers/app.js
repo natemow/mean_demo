@@ -24,7 +24,7 @@ var controllerLogin = function(App, Auth, $window, $scope) {
   vm.doLogin = function() {
     Auth
       .login(vm.user.username, vm.user.password)
-      .success(function(data) {
+      .success(function(result) {
         $window.location.href = '/';
       })
       .error(function(result) {

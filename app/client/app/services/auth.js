@@ -54,7 +54,7 @@ angular
           AuthStorage.set(p, result.data[p]);
         }
 
-        return true;
+        return result;
       })
       .error(function(result) {
         return result;
@@ -80,7 +80,7 @@ angular
     factory.getUser = function() {
       return $http.get('/api/auth')
         .success(function(result) {
-          return result.data;
+          return result;
         })
         .error(function(result) {
           return result;
