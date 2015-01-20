@@ -2,7 +2,7 @@
 
 ## Server
 * **M**ongoDB, **N**ode.js, **E**xpress
-  * All API requests require a valid token issued at login.
+  * All API requests require a valid token issued at login through [`middleware.js`](https://github.com/natemow/mean_demo/blob/master/app/server/middleware.js).
   * All API responses are standardized through custom [`crud.js`](https://github.com/natemow/mean_demo/blob/master/app/server/models/crud.js) module; all client messaging and success/failure toggling is driven by the API.
     <pre><code>// Add CRUD methods to object for APIs.
     var user = mongoose.model('User', UserSchema);
